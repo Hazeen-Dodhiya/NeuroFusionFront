@@ -17,7 +17,7 @@ export default function ResetPasswordPage() {
     const verifyToken = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/user/verify-reset-token/${token}`
+          `https://neurofusion-iqt7.onrender.com/user/verify-reset-token/${token}`
         );
 
         const data = await res.json();
@@ -53,7 +53,7 @@ export default function ResetPasswordPage() {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/user/reset-password/${token}`,
+        `https://neurofusion-iqt7.onrender.com/user/reset-password/${token}`,
         {
           method: "POST",
           headers: {

@@ -43,7 +43,7 @@ export default function Dashboard() {
       const formData = new FormData();
       formData.append("mri", file);
 
-      const res = await fetch("http://localhost:5000/mri/upload", {
+      const res = await fetch("https://neurofusion-iqt7.onrender.com/mri/upload", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

@@ -51,7 +51,7 @@ export default function AccountPage() {
       const token = localStorage.getItem("token");
 
       const res = await fetch(
-        "http://localhost:5000/user/update-profile",
+        "https://neurofusion-iqt7.onrender.com/user/update-profile",
         {
           method: "PUT",
           headers: {

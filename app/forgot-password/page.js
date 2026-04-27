@@ -25,7 +25,7 @@ export default function ForgotPassword() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/user/forgot-password", {
+      const res = await fetch("https://neurofusion-iqt7.onrender.com/user/forgot-password", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

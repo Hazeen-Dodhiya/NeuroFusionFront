@@ -29,7 +29,7 @@ export default function Signup() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/user/signup", {
+      const res = await fetch("https://neurofusion-iqt7.onrender.com/user/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -57,7 +57,7 @@ export default function Signup() {
   // GOOGLE SIGNUP (same backend as login)
   const handleGoogleSuccess = async (credentialResponse) => {
     try {
-      const res = await fetch("http://localhost:5000/user/google-signup", {
+      const res = await fetch("https://neurofusion-iqt7.onrender.com/user/google-signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

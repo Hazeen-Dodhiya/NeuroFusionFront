@@ -22,7 +22,7 @@ export default function Login() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/user/login", {
+      const res = await fetch("https://neurofusion-iqt7.onrender.com/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -50,7 +50,7 @@ export default function Login() {
   // GOOGLE LOGIN
   const handleGoogleSuccess = async (credentialResponse) => {
     try {
-      const res = await fetch("http://localhost:5000/user/google-login", {
+      const res = await fetch("https://neurofusion-iqt7.onrender.com/user/google-login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
