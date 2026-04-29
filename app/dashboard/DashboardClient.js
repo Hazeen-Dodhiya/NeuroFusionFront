@@ -107,7 +107,27 @@ export default function DashboardClient() {
         type="file"
         className="form-control mb-3"
         ref={fileInputRef}
-        onChange={(e) => setFile(e.target.files[0])}
+        accept=".dcm,.nii,.nii.gz,.npz"
+        onChange={(e) => {
+          const selectedFile = e.target.files[0];
+
+          if (!selectedFile) return;
+
+          const fileName = selectedFile.name.toLowerCase();
+
+          const allowed = [".dcm", ".nii", ".nii.gz", ".npz"];
+          const isValid = allowed.some((ext) => fileName.endsWith(ext));
+
+          if (!isValid) {
+            setMessage("❌ Only .dcm, .nii, .nii.gz, .npz files are allowed");
+            e.target.value = ""; // reset input
+            setFile(null);
+            return;
+          }
+
+          setMessage("");
+          setFile(selectedFile);
+        }}
       />
 
       <button
