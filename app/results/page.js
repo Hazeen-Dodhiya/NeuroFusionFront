@@ -9,10 +9,10 @@ export default function ResultsPage() {
   useEffect(() => {
     const fetchResults = async () => {
       try {
-        const token = localStorage.getItem("token"); // adjust if different
+        const token = localStorage.getItem("token");
 
         const res = await fetch(
-          "https://your-backend-url.com/mri/get_results", // 🔥 change this
+          "https://neurofusion.me/mri/get_results",
           {
             headers: {
               Authorization: `Bearer ${token}`,
