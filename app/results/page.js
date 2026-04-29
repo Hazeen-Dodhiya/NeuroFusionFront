@@ -76,7 +76,7 @@ export default function ResultsPage() {
                   </h5>
 
                   {/* PREDICTION */}
-                  <div className="mb-2">
+                  <div className="mb-2" style={{minHeight: "48px" }}>
                     <small className="text-muted">Prediction</small>
                     <h6
                       className={
