@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 export default function DashboardClient() {
+  const fileInputRef = useRef(null);
   const router = useRouter();
   const params = useSearchParams();
 
@@ -62,6 +63,9 @@ export default function DashboardClient() {
 
       setMessage("✅ MRI uploaded successfully");
       setFile(null);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
     } catch (err) {
       setMessage("Upload error");
     } finally {
@@ -77,6 +81,7 @@ export default function DashboardClient() {
       <input
         type="file"
         className="form-control mb-3"
+        ref={fileInputRef}
         onChange={(e) => setFile(e.target.files[0])}
       />
 
