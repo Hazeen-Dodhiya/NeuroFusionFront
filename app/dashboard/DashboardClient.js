@@ -66,6 +66,9 @@ export default function DashboardClient() {
       if (fileInputRef.current) {
         fileInputRef.current.value = "";
       }
+      setTimeout(() => {
+        setMessage("");
+      }, 3000);
     } catch (err) {
       setMessage("Upload error");
     } finally {
