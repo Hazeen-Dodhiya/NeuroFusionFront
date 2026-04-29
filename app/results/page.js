@@ -76,7 +76,7 @@ export default function ResultsPage() {
                   </h5>
 
                   {/* PREDICTION */}
-                  <div className="mb-2" style={{minHeight: "48px" }}>
+                  <div className="mb-2">
                     <small className="text-muted">Prediction</small>
                     <h6
                       className={
@@ -88,7 +88,20 @@ export default function ResultsPage() {
                   </div>
 
                   {/* PROBABILITIES */}
-                  <div className="mb-3">
+                  <div className="mb-3" style={{ minHeight: "70px" }}>
+                    <small className="text-muted">Probabilities</small>
+
+                    {Object.entries(item.probabilities || {}).map(([key, value]) => (
+                      <div
+                        key={key}
+                        className="d-flex justify-content-between small"
+                      >
+                        <span>{key}</span>
+                        <span>{(value * 100).toFixed(2)}%</span>
+                      </div>
+                    ))}
+                  </div>
+                  {/* <div className="mb-3">
                     <small className="text-muted">Probabilities</small>
 
                     {Object.entries(item.probabilities || {}).map(
@@ -102,7 +115,7 @@ export default function ResultsPage() {
                         </div>
                       )
                     )}
-                  </div>
+                  </div> */}
 
                   {/* DATE */}
                   <div className="text-muted small mb-3">
