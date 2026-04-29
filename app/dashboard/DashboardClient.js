@@ -5,28 +5,38 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 export default function DashboardClient() {
   const fileInputRef = useRef(null);
+  const timeoutRef = useRef(null);
+
   const router = useRouter();
   const params = useSearchParams();
 
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [authorized, setAuthorized] = useState(false); // ✅ new
 
   useEffect(() => {
     const urlToken = params.get("token");
 
+    // ✅ If token comes from URL (OAuth etc.)
     if (urlToken) {
       localStorage.setItem("token", urlToken);
+      setAuthorized(true);
       router.replace("/dashboard");
       return;
     }
 
     const token = localStorage.getItem("token");
 
+    // 🚫 Not logged in → redirect
     if (!token) {
       router.push("/login");
+      return;
     }
-  }, []);
+
+    // ✅ Authorized
+    setAuthorized(true);
+  }, [params, router]);
 
   const handleUpload = async () => {
     if (!file) {
@@ -63,18 +73,30 @@ export default function DashboardClient() {
 
       setMessage("✅ MRI uploaded successfully");
       setFile(null);
+
+      // clear file input UI
       if (fileInputRef.current) {
         fileInputRef.current.value = "";
       }
-      setTimeout(() => {
+
+      // clear previous timeout if exists
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+
+      timeoutRef.current = setTimeout(() => {
         setMessage("");
       }, 3000);
+
     } catch (err) {
       setMessage("Upload error");
     } finally {
       setLoading(false);
     }
   };
+
+  // 🚫 Prevent flicker before auth check
+  if (!authorized) return null;
 
   return (
     <div className="container mt-5">
