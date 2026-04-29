@@ -56,6 +56,13 @@ export default function Navbar() {
               </a>
             </li>
           )}
+          {user && (
+            <li className="nav-item">
+              <a className="nav-link" href="/results">
+                Results
+              </a>
+            </li>
+          )}
 
         </ul>
 
