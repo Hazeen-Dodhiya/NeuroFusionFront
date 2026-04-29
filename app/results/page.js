@@ -22,11 +22,8 @@ export default function ResultsPage() {
 
         const json = await res.json();
 
-        if (json.success) {
-          setData(json.results);
-        } else {
-          setData([]);
-        }
+        if (json.success) setData(json.results);
+        else setData([]);
       } catch (err) {
         console.error(err);
         setData([]);
@@ -63,14 +60,15 @@ export default function ResultsPage() {
         🧠 MRI Analysis Results
       </h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* 🔥 FORCE 3 PER ROW */}
+      <div className="flex flex-wrap justify-start gap-6">
         {data.map((item) => {
           const isPAD = item.prediction?.label?.includes("PAD");
 
           return (
             <div
               key={item._id}
-              className="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 p-5 border border-gray-100"
+              className="w-full sm:w-[48%] lg:w-[31%] bg-white rounded-2xl shadow-md hover:shadow-xl transition p-5 border border-gray-100"
             >
               {/* FILE NAME */}
               <h2 className="font-semibold text-lg mb-2 text-gray-800 truncate">
@@ -102,9 +100,7 @@ export default function ResultsPage() {
                         key={key}
                         className="flex justify-between"
                       >
-                        <span className="text-gray-700">
-                          {key}
-                        </span>
+                        <span className="text-gray-700">{key}</span>
                         <span className="font-medium">
                           {(value * 100).toFixed(2)}%
                         </span>
@@ -119,7 +115,7 @@ export default function ResultsPage() {
                 {new Date(item.analysedAt).toLocaleString()}
               </p>
 
-              {/* BUTTON */}
+              {/* VIEW MRI BUTTON (RESTORED) */}
               <a
                 href={item.fileUrl}
                 target="_blank"
