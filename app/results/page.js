@@ -161,6 +161,45 @@ export default function ResultsPage() {
                     >
                       No File Available
                     </button>
+                    <button
+                      className="btn btn-danger btn-sm w-100 mt-2"
+                      onClick={async () => {
+                        const confirmDelete = window.confirm("Are you sure you want to delete this MRI?");
+                        if (!confirmDelete) return;
+
+                        try {
+                          const token = localStorage.getItem("token");
+
+                          const res = await fetch(
+                            "https://neurofusion-iqt7.onrender.com/mri/remove",
+                            {
+                              method: "DELETE",
+                              headers: {
+                                "Content-Type": "application/json",
+                                Authorization: `Bearer ${token}`,
+                              },
+                              body: JSON.stringify({ id: item._id }),
+                            }
+                          );
+
+                          const data = await res.json();
+
+                          if (!res.ok) {
+                            alert(data.message || "Delete failed");
+                            return;
+                          }
+
+                          // 🔄 reload page after delete
+                          window.location.reload();
+
+                        } catch (err) {
+                          console.error(err);
+                          alert("Error deleting MRI");
+                        }
+                      }}
+                    >
+                      Remove
+                    </button>
                   )}
 
                 </div>
