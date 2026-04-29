@@ -38,8 +38,8 @@ export default function ResultsPage() {
   // ================= LOADING =================
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen text-lg">
-        Loading results...
+      <div className="d-flex justify-content-center align-items-center vh-100">
+        <h5>Loading results...</h5>
       </div>
     );
   }
@@ -47,83 +47,88 @@ export default function ResultsPage() {
   // ================= EMPTY =================
   if (!data.length) {
     return (
-      <div className="flex justify-center items-center h-screen text-lg text-gray-600">
-        No MRI predictions found.
+      <div className="d-flex justify-content-center align-items-center vh-100">
+        <h5>No MRI predictions found.</h5>
       </div>
     );
   }
 
   // ================= MAIN UI =================
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
-      <h1 className="text-3xl font-bold mb-8 text-center">
+    <div className="container py-4">
+      <h2 className="text-center mb-4 fw-bold">
         🧠 MRI Analysis Results
-      </h1>
+      </h2>
 
-      {/* 🔥 FORCE 3 PER ROW */}
-      <div className="flex flex-wrap justify-start gap-6">
+      <div className="row">
         {data.map((item) => {
           const isPAD = item.prediction?.label?.includes("PAD");
 
           return (
-            <div
-              key={item._id}
-              className="w-full sm:w-[48%] lg:w-[31%] bg-white rounded-2xl shadow-md hover:shadow-xl transition p-5 border border-gray-100"
-            >
-              {/* FILE NAME */}
-              <h2 className="font-semibold text-lg mb-2 text-gray-800 truncate">
-                {item.fileName}
-              </h2>
+            <div key={item._id} className="col-md-4 mb-4">
+              <div className="card h-100 shadow-sm border-0 rounded-4">
 
-              {/* PREDICTION */}
-              <div className="mb-3">
-                <p className="text-sm text-gray-500">Prediction</p>
-                <p
-                  className={`text-base font-bold ${
-                    isPAD ? "text-red-600" : "text-green-600"
-                  }`}
-                >
-                  {item.prediction?.label || "N/A"}
-                </p>
-              </div>
+                <div className="card-body">
 
-              {/* PROBABILITIES */}
-              <div className="mb-4">
-                <p className="text-sm text-gray-500 mb-1">
-                  Probabilities
-                </p>
+                  {/* FILE NAME */}
+                  <h5 className="card-title text-truncate">
+                    {item.fileName || "Unnamed MRI"}
+                  </h5>
 
-                <div className="space-y-1 text-sm">
-                  {Object.entries(item.probabilities || {}).map(
-                    ([key, value]) => (
-                      <div
-                        key={key}
-                        className="flex justify-between"
-                      >
-                        <span className="text-gray-700">{key}</span>
-                        <span className="font-medium">
-                          {(value * 100).toFixed(2)}%
-                        </span>
-                      </div>
-                    )
+                  {/* PREDICTION */}
+                  <div className="mb-2">
+                    <small className="text-muted">Prediction</small>
+                    <h6
+                      className={
+                        isPAD ? "text-danger fw-bold" : "text-success fw-bold"
+                      }
+                    >
+                      {item.prediction?.label || "N/A"}
+                    </h6>
+                  </div>
+
+                  {/* PROBABILITIES */}
+                  <div className="mb-3">
+                    <small className="text-muted">Probabilities</small>
+
+                    {Object.entries(item.probabilities || {}).map(
+                      ([key, value]) => (
+                        <div
+                          key={key}
+                          className="d-flex justify-content-between small"
+                        >
+                          <span>{key}</span>
+                          <span>{(value * 100).toFixed(2)}%</span>
+                        </div>
+                      )
+                    )}
+                  </div>
+
+                  {/* DATE */}
+                  <div className="text-muted small mb-3">
+                    {item.analysedAt
+                      ? new Date(item.analysedAt).toLocaleString()
+                      : "No date"}
+                  </div>
+
+                  {/* VIEW MRI BUTTON (FIXED SAFE) */}
+                  {item.fileUrl ? (
+                    <a
+                      href={item.fileUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-primary btn-sm w-100"
+                    >
+                      View MRI
+                    </a>
+                  ) : (
+                    <button className="btn btn-secondary btn-sm w-100" disabled>
+                      No File Available
+                    </button>
                   )}
+
                 </div>
               </div>
-
-              {/* DATE */}
-              <p className="text-xs text-gray-400 mb-4">
-                {new Date(item.analysedAt).toLocaleString()}
-              </p>
-
-              {/* VIEW MRI BUTTON (RESTORED) */}
-              <a
-                href={item.fileUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-center bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg text-sm font-medium transition"
-              >
-                View MRI
-              </a>
             </div>
           );
         })}
