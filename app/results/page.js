@@ -12,7 +12,7 @@ export default function ResultsPage() {
         const token = localStorage.getItem("token");
 
         const res = await fetch(
-          "https://neurofusion.me/mri/get_results",
+          "https://neurofusion-iqt7.onrender.com/mri/get_results",
           {
             headers: {
               Authorization: `Bearer ${token}`,
