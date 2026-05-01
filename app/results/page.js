@@ -162,6 +162,25 @@ export default function ResultsPage() {
                     </button>
                   )}
 
+                  {/* VIEW PREDICTION IMAGE */}
+                  {item.heatmapUrl ? (
+                    <a
+                      href={item.heatmapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-warning btn-sm w-100 mt-2"
+                    >
+                      View Prediction Heatmap
+                    </a>
+                  ) : (
+                    <button
+                      className="btn btn-secondary btn-sm w-100 mt-2"
+                      disabled
+                    >
+                      No Prediction Image
+                    </button>
+                  )}
+
                   {/* ✅ REMOVE BUTTON (ADDED) */}
                   <button
                     className="btn btn-danger btn-sm w-100 mt-2"
