@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
 export const metadata = {
-  title: "BrainFusion",
+  title: "NeuroFusion",
 };
 
 export default function RootLayout({ children }) {
