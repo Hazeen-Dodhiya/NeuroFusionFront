@@ -281,7 +281,7 @@ export default function AccountPage() {
         {
           method: "DELETE",
           headers: {
-            Authorization: token,
+            Authorization: `Bearer ${token}`
           },
         }
       );
