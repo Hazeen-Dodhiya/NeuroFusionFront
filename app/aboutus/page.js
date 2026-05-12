@@ -14,7 +14,7 @@ export default function AboutUs() {
       name: "Owais Aamir",
       id: "22K-4322",
       linkedin: "https://www.linkedin.com/in/owais-aamir-b944b8287/?skipRedirect=true",
-      github: "",
+      github: "https://github.com/owaisrpt",
       gmail: "mailto:k224322@nu.edu.pk",
     },
     {
