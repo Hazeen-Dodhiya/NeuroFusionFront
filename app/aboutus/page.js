@@ -50,15 +50,15 @@ export default function AboutUs() {
     {
       name: "Owais Aamir",
       id: "22K-4322",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/owais-aamir-b944b8287/?skipRedirect=true",
       github: "",
       gmail: "mailto:k224322@nu.edu.pk",
     },
     {
       name: "Hanzalah Umer",
       id: "22K-4156",
-      linkedin: "",
-      github: "",
+      linkedin: "https://www.linkedin.com/in/hanzala-h-umer-b43339335/",
+      github: "https://github.com/hanzalahcmd",
       gmail: "mailto:k224156@nu.edu.pk",
     },
   ];
