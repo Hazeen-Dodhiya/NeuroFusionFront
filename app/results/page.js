@@ -386,7 +386,7 @@ export default function ResultsPage() {
                 </div>
 
                 {/* DATE */}
-                <div className="text-muted small mb-3">
+                <div className="text-secondary">
                   {item.analysedAt
                     ? new Date(item.analysedAt).toLocaleString()
                     : "No date"}
