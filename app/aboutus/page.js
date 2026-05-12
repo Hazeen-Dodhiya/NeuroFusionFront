@@ -35,19 +35,31 @@
 // }
 
 
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+
 export default function AboutUs() {
   const teamMembers = [
     {
       name: "Hazeen Dodhiya",
       id: "22K-4357",
+      linkedin:
+        "https://www.linkedin.com/in/hazeen-dodhiya-b9505035a/?skipRedirect=true",
+      github: "https://github.com/Hazeen-Dodhiya",
+      gmail: "mailto:hazeenwork@gmail.com",
     },
     {
       name: "Owais Aamir",
       id: "22K-4322",
+      linkedin: "",
+      github: "",
+      gmail: "mailto:k224322@nu.edu.pk",
     },
     {
       name: "Hanzalah Umer",
       id: "22K-4156",
+      linkedin: "",
+      github: "",
+      gmail: "mailto:k224156@nu.edu.pk",
     },
   ];
 
@@ -245,7 +257,6 @@ export default function AboutUs() {
                 style={{
                   backgroundColor: "#1a1a1a",
                   border: "1px solid #2f2f2f",
-                  transition: "0.3s",
                 }}
               >
                 <div>
@@ -255,18 +266,40 @@ export default function AboutUs() {
                   </small>
                 </div>
 
-                <button
-                  className="btn"
-                  style={{
-                    backgroundColor: "#ffc107",
-                    color: "#000",
-                    fontWeight: "600",
-                    borderRadius: "10px",
-                    padding: "8px 16px",
-                  }}
-                >
-                  Team
-                </button>
+                <div className="d-flex gap-3 fs-5">
+                  {member.linkedin ? (
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{ color: "#ffc107" }}
+                    >
+                      <FaLinkedin />
+                    </a>
+                  ) : (
+                    <span style={{ width: "20px" }}></span>
+                  )}
+
+                  {member.github ? (
+                    <a
+                      href={member.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{ color: "#ffc107" }}
+                    >
+                      <FaGithub />
+                    </a>
+                  ) : (
+                    <span style={{ width: "20px" }}></span>
+                  )}
+
+                  <a
+                    href={member.gmail}
+                    style={{ color: "#ffc107" }}
+                  >
+                    <FaEnvelope />
+                  </a>
+                </div>
               </div>
             ))}
           </div>
