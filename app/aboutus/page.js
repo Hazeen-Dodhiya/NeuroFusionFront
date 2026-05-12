@@ -1,35 +1,277 @@
 
 
+// export default function AboutUs() {
+//   return (
+//     <div className="container mt-5">
+
+//       <h1 className="mb-4">About Neuro Fusion</h1>
+
+//       <p>
+//         Neuro Fusion is an AI-powered medical assistance project designed to help in the early detection and prediction of Alzheimer’s disease.
+//       </p>
+
+//       <p>
+//         This system allows users to upload MRI scans, which are then analyzed using advanced Artificial Intelligence and Machine Learning models to detect patterns associated with Alzheimer’s.
+//       </p>
+
+//       <p>
+//         The platform provides a complete user system where users can:
+//       </p>
+
+//       <ul>
+//         <li>Create an account</li>
+//         <li>Login securely</li>
+//         <li>Logout anytime</li>
+//         <li>Upload MRI scans</li>
+//         <li>Receive AI-based prediction results</li>
+//       </ul>
+
+//       <p>
+//         Neuro Fusion aims to assist doctors and patients by providing fast, reliable, and AI-driven diagnostic insights for early-stage Alzheimer’s detection.
+//       </p>
+
+//     </div>
+//   );
+// }
+
+
 export default function AboutUs() {
+  const teamMembers = [
+    {
+      name: "Hazeen Dodhiya",
+      id: "22K-4357",
+    },
+    {
+      name: "Owais Aamir",
+      id: "22K-4322",
+    },
+    {
+      name: "Hanzalah Umer",
+      id: "22K-4156",
+    },
+  ];
+
   return (
-    <div className="container mt-5">
+    <div
+      className="container py-5"
+      style={{
+        color: "#fff",
+        minHeight: "100vh",
+      }}
+    >
+      {/* Hero Section */}
+      <div
+        className="text-center p-5 mb-5 rounded-4"
+        style={{
+          background:
+            "linear-gradient(135deg, #111 0%, #1c1c1c 50%, #000 100%)",
+          border: "1px solid #2b2b2b",
+          boxShadow: "0 0 25px rgba(255, 193, 7, 0.15)",
+        }}
+      >
+        <h1
+          className="fw-bold mb-3"
+          style={{
+            fontSize: "3rem",
+            color: "#ffc107",
+            letterSpacing: "1px",
+          }}
+        >
+          About Neuro Fusion
+        </h1>
 
-      <h1 className="mb-4">About Neuro Fusion</h1>
+        <p
+          className="mx-auto"
+          style={{
+            maxWidth: "850px",
+            color: "#d1d1d1",
+            fontSize: "1.1rem",
+            lineHeight: "1.9",
+          }}
+        >
+          Neuro Fusion is an AI-powered medical assistance project designed to
+          help in the early detection and prediction of Alzheimer’s disease.
+        </p>
+      </div>
 
-      <p>
-        Neuro Fusion is an AI-powered medical assistance project designed to help in the early detection and prediction of Alzheimer’s disease.
-      </p>
+      {/* Main Content */}
+      <div className="row g-4">
+        {/* Left Side */}
+        <div className="col-lg-7">
+          <div
+            className="p-4 rounded-4 h-100"
+            style={{
+              backgroundColor: "#111",
+              border: "1px solid #2a2a2a",
+            }}
+          >
+            <h3
+              className="mb-4 fw-bold"
+              style={{ color: "#ffc107" }}
+            >
+              Project Overview
+            </h3>
 
-      <p>
-        This system allows users to upload MRI scans, which are then analyzed using advanced Artificial Intelligence and Machine Learning models to detect patterns associated with Alzheimer’s.
-      </p>
+            <p style={{ color: "#d4d4d4", lineHeight: "1.9" }}>
+              This system allows users to upload MRI scans, which are then
+              analyzed using advanced Artificial Intelligence and Machine
+              Learning models to detect patterns associated with Alzheimer’s.
+            </p>
 
-      <p>
-        The platform provides a complete user system where users can:
-      </p>
+            <p style={{ color: "#d4d4d4", lineHeight: "1.9" }}>
+              The platform provides a complete user system where users can:
+            </p>
 
-      <ul>
-        <li>Create an account</li>
-        <li>Login securely</li>
-        <li>Logout anytime</li>
-        <li>Upload MRI scans</li>
-        <li>Receive AI-based prediction results</li>
-      </ul>
+            <div className="row mt-4">
+              <div className="col-md-6 mb-3">
+                <div
+                  className="p-3 rounded-3"
+                  style={{
+                    backgroundColor: "#1a1a1a",
+                    borderLeft: "4px solid #ffc107",
+                  }}
+                >
+                  ✅ Create an account
+                </div>
+              </div>
 
-      <p>
-        Neuro Fusion aims to assist doctors and patients by providing fast, reliable, and AI-driven diagnostic insights for early-stage Alzheimer’s detection.
-      </p>
+              <div className="col-md-6 mb-3">
+                <div
+                  className="p-3 rounded-3"
+                  style={{
+                    backgroundColor: "#1a1a1a",
+                    borderLeft: "4px solid #ffc107",
+                  }}
+                >
+                  🔐 Login securely
+                </div>
+              </div>
 
+              <div className="col-md-6 mb-3">
+                <div
+                  className="p-3 rounded-3"
+                  style={{
+                    backgroundColor: "#1a1a1a",
+                    borderLeft: "4px solid #ffc107",
+                  }}
+                >
+                  🚪 Logout anytime
+                </div>
+              </div>
+
+              <div className="col-md-6 mb-3">
+                <div
+                  className="p-3 rounded-3"
+                  style={{
+                    backgroundColor: "#1a1a1a",
+                    borderLeft: "4px solid #ffc107",
+                  }}
+                >
+                  🧠 Upload MRI scans
+                </div>
+              </div>
+
+              <div className="col-md-12 mb-2">
+                <div
+                  className="p-3 rounded-3"
+                  style={{
+                    backgroundColor: "#1a1a1a",
+                    borderLeft: "4px solid #ffc107",
+                  }}
+                >
+                  🤖 Receive AI-based prediction results
+                </div>
+              </div>
+            </div>
+
+            <p
+              className="mt-4"
+              style={{ color: "#d4d4d4", lineHeight: "1.9" }}
+            >
+              Neuro Fusion aims to assist doctors and patients by providing
+              fast, reliable, and AI-driven diagnostic insights for early-stage
+              Alzheimer’s detection.
+            </p>
+          </div>
+        </div>
+
+        {/* Right Side */}
+        <div className="col-lg-5">
+          <div
+            className="p-4 rounded-4 mb-4"
+            style={{
+              backgroundColor: "#111",
+              border: "1px solid #2a2a2a",
+            }}
+          >
+            <h3
+              className="fw-bold mb-4"
+              style={{ color: "#ffc107" }}
+            >
+              Our Mission
+            </h3>
+
+            <p
+              style={{
+                color: "#d4d4d4",
+                lineHeight: "1.9",
+              }}
+            >
+              Our goal is to combine Artificial Intelligence with medical
+              technology to support faster and more accessible Alzheimer’s
+              detection through MRI analysis.
+            </p>
+          </div>
+
+          {/* Team Section */}
+          <div
+            className="p-4 rounded-4"
+            style={{
+              backgroundColor: "#111",
+              border: "1px solid #2a2a2a",
+            }}
+          >
+            <h3
+              className="fw-bold mb-4"
+              style={{ color: "#ffc107" }}
+            >
+              Team Members
+            </h3>
+
+            {teamMembers.map((member, index) => (
+              <div
+                key={index}
+                className="d-flex justify-content-between align-items-center p-3 mb-3 rounded-3"
+                style={{
+                  backgroundColor: "#1a1a1a",
+                  border: "1px solid #2f2f2f",
+                  transition: "0.3s",
+                }}
+              >
+                <div>
+                  <h5 className="mb-1 text-white">{member.name}</h5>
+                  <small style={{ color: "#b0b0b0" }}>
+                    Student ID: {member.id}
+                  </small>
+                </div>
+
+                <button
+                  className="btn"
+                  style={{
+                    backgroundColor: "#ffc107",
+                    color: "#000",
+                    fontWeight: "600",
+                    borderRadius: "10px",
+                    padding: "8px 16px",
+                  }}
+                >
+                  Team
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
