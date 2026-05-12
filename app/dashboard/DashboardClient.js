@@ -353,9 +353,13 @@ export default function DashboardClient() {
           }}
         >
 
-          <label className="form-label text-light mb-2">
+          <label className="form-label text-light mb-1">
             Select MRI File
           </label>
+
+          <small className="text-secondary d-block mb-2">
+            Supported formats: <span style={{ color: "#ffc107" }}>.dcm, .nii, .nii.gz, .npz</span>
+          </small>
 
           <input
             type="file"
